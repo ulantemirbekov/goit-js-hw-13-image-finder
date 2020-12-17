@@ -7,3 +7,29 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+body {
+  background-color: #c7c7c7;
+}
+
+img {
+  display: block;
+}
+
+li {
+  list-style: none;
+  margin: 0 auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats-item {
+  margin-right: 10px;
+}
