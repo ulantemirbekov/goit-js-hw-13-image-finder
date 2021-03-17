@@ -7,11 +7,9 @@ function fetchImages(query, page) {
         .then(response => {
             if (response.status === 200) {
                 return response.json();
-            };
+            }
         })
-        .then(data => {
-            return data.hits;
-        })
+        .then(data => data.hits)
 };
 
 export default fetchImages;
