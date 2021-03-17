@@ -9,7 +9,8 @@ refs.btnLoadMoreRef.style.display = 'none';
 const searchImages = (event) => {
     event.preventDefault();
     refs.galleryRef.innerHTML = '';
-    inputValue = event.target.elements.query.value;
+    // inputValue = event.target.elements.query.value;
+    inputValue = event.currentTarget.elements.query.value;
 
     if (inputValue.length > 1) {
         fetchImages(inputValue, page)
@@ -21,4 +22,17 @@ const searchImages = (event) => {
     }
 };
 
-export default searchImages;
+const loadMore = () => {
+    page += 1;
+
+    fetchImages(inputValue, page)
+        .then(images => {
+            addToMarkup(images)
+            window.scrollTo({
+                top: document.documentElement.offsetHeight,
+                behavior: 'smooth'
+            });
+        }).catch(error => console.log(error))
+};
+
+export { searchImages, loadMore };
