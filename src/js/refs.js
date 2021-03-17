@@ -4,7 +4,7 @@ const refs = {
     inputRef: document.querySelector('input'),
     galleryRef: document.querySelector('.gallery'),
     btnSearchRef: document.querySelector('.search-btn'),
-    btnLoadRef: document.querySelector('.load-btn'),
+    btnLoadMoreRef: document.querySelector('.load-btn'),
 }
 
 export default refs;
