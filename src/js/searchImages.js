@@ -12,7 +12,7 @@ const searchImages = (event) => {
     // inputValue = event.target.elements.query.value;
     inputValue = event.currentTarget.elements.query.value;
 
-    if (inputValue.length > 1) {
+    if (inputValue.length) {
         fetchImages(inputValue, page)
             .then(images => {
                 addToMarkup(images)
