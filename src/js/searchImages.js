@@ -8,6 +8,8 @@ refs.btnLoadMoreRef.style.display = 'none';
 
 const searchImages = (event) => {
     event.preventDefault();
+
+    page = 1;
     refs.galleryRef.innerHTML = '';
     // inputValue = event.target.elements.query.value;
     inputValue = event.currentTarget.elements.query.value;
