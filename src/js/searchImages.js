@@ -11,17 +11,21 @@ const searchImages = (event) => {
 
     page = 1;
     refs.galleryRef.innerHTML = '';
-    // inputValue = event.target.elements.query.value;
+
     inputValue = event.currentTarget.elements.query.value;
 
-    if (inputValue.length) {
-        fetchImages(inputValue, page)
-            .then(images => {
-                addToMarkup(images)
-                refs.btnLoadMoreRef.style.display = 'block';
-            })
-            .catch(error => console.log(error))
-    }
+    fetchImages(inputValue, page)
+        .then(images => {
+
+            if (images.length < 12) {
+                addToMarkup(images);
+                return;
+            }
+
+            addToMarkup(images);
+            refs.btnLoadMoreRef.style.display = 'block';
+        })
+        .catch(error => console.log(error));
 };
 
 const loadMore = () => {
@@ -29,6 +33,13 @@ const loadMore = () => {
 
     fetchImages(inputValue, page)
         .then(images => {
+
+            if (images.length < 12) {
+                addToMarkup(images);
+                refs.btnLoadMoreRef.style.display = 'none';
+                return;
+            };
+
             addToMarkup(images)
             window.scrollTo({
                 top: document.documentElement.offsetHeight,
